@@ -1,10 +1,15 @@
 import React from 'react';
 import AboutSection from '../components/AboutSection'
- const AboutUs =()=>{
-     return(
-         <AboutSection />
-        
+import ServicesSection from '../components/ServicesSection'
+import FaqSection from '../components/FaqSection'
 
+const AboutUs =()=>{
+     return(
+        <>
+            <AboutSection/>
+            <ServicesSection/>
+            <FaqSection/>
+        </>
      )
  }
 

@@ -21,7 +21,7 @@ const AboutSection =()=>{
             <button>Contact Us</button>
         </div>
             <div className="image">
-                <img src="{home1}" alt="Guy with the camera"/>
+                <img src={home1} alt="Guy with the camera"/>
             </div>
       </div>
     )
