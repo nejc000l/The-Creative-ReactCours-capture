@@ -63,7 +63,6 @@ const FaqSection =()=>{
                     <p>
                         Lorem ipsum dolor sit
                          amet consectetur 
-                         adipisicing elit.
                           Blanditiis, at? 
                           Odit mollitia, 
                           distinctio libero nihil 
