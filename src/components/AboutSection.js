@@ -3,6 +3,8 @@ import home1 from '../img/home1.png'
 import styled from 'styled-components'
 import {About, Hide,Description,Image} from '../styled'
 import {motion} from 'framer-motion';
+import {titleAnim,fade,photoAnim} from '../animation'
+import Wave from './Wave';
 
 const AboutSection = () => {
 
@@ -11,25 +13,26 @@ const AboutSection = () => {
             <Description>
                 <motion.div className="title">
                     <Hide>
-                        <motion.h2>We work to make
+                        <motion.h2 variants={titleAnim}>We work to make
                         </motion.h2>
                     </Hide>
                     <Hide>
-                        <motion.h2>your <span>dreams </span>come</motion.h2>
+                        <motion.h2 variants={titleAnim}>your <span>dreams </span>come</motion.h2>
                     </Hide>
                     <Hide>
-                        <motion.h2>true.</motion.h2>
+                        <motion.h2 variants={titleAnim}>true.</motion.h2>
                     </Hide>
-                    <p>Contact us for any photography or videography
+                    <motion.p variants={fade}>Contact us for any photography or videography
                     that you have.
                     We have professionals with amazing skills
-                </p>
-                    <button>Contact Us</button>
+                </motion.p>
+                    <motion.button variants={fade}>Contact Us</motion.button>
                 </motion.div>
             </Description>
                 <Image>
-                    <img src={home1} alt="Guy with the camera" />
+                    <motion.img variants={photoAnim} src={home1} alt="Guy with the camera" />
                 </Image>
+                <Wave/>
         </About>
     )
 }

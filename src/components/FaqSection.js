@@ -1,109 +1,88 @@
 import React from 'react';
+import { About } from '../styled';
 import styled from 'styled-components';
+import Toggle from './Toggle';
+import { AnimateSharedLayout } from 'framer-motion';
+//Scroll animation
+import {useScroll} from './useScroll'
+import {fade} from '../animation'
 
-import {About} from '../styled'
 
-const FaqSection =()=>{
-    return (
-        <Faq>
-            <h2>Any questions<span>FAQ</span></h2>
-            <div className="question">
-                <h4>How do I start</h4>
-                <div className="answer">
-                    <p>
-                        Lorem 
-                        ipsum dolor 
-                        sit 
-                        amet.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit
-                        amet consectetur 
-                        adipisicing elit.
-                        Blanditiis
-                    </p>
-                </div>
-                <div className="faq-line"></div>  
-            </div>
-            <div className="question">
-                <h4>Daily Schedule</h4>
-                <div className="answer">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>
-                        Lorem ipsum dolor sit
-                        amet consectetur 
-                        adipisicing elit.
-                        Blanditiis, at? 
-                
-                    </p>
-                </div>
-                <div className="faq-line"></div>
+const FaqSection = () => {
+    const [element,controls] = useScroll();
+  return (
+    <Faq 
+    variants={fade}
+    ref={element}
+    animate={controls}
+    initial="hidden"
+    >
+      <h2>
+        Any Questions? <span>FAQ</span>
+      </h2>
 
-            </div>
-            <div className="question">
-                <h4>Payment Methods</h4>
-                <div className="answer">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>
-                        Lorem ipsum dolor sit
-                        amet consectetur 
-                        adipisicing elit.
-                        Blanditiis, at? 
-                     
-                    </p>
-                </div>
-                <div className="faq-line"></div>
-
-            </div>
-            <div className="question">
-                <h4>What products do you offer</h4>
-                <div className="answer">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>
-                        Lorem ipsum dolor sit
-                        amet consectetur 
-                        Blanditiis, at? 
-                    </p>
-                </div>
-            </div>
-        </Faq>
-    )
-}
+      <AnimateSharedLayout>
+        <Toggle title="How Do I Start?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="What Products do you offer?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Diferrent Payment Methods">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Daily Schedule">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+      </AnimateSharedLayout>
+    </Faq>
+  );
+};
 const Faq = styled(About)`
   display: block;
-  
-  span
-  {
+  span {
     display: block;
     color: #23d997;
   }
-
-  h2
-  {
+  h2 {
     font-weight: lighter;
     padding-bottom: 4rem;
   }
-
-  h4
-  {
-      font-weight: bold;
-      font-size: 2rem;
-  }
-
-  .faq-line 
-  {
+  .faq-line {
     background: #cccccc;
     height: 0.2rem;
     margin: 2rem 0rem;
     width: 100%;
   }
-  .answer 
-  {
+  .answer {
     padding: 2rem 0rem;
-        p 
-        {
-        padding: 1rem 0rem;
-        }
+    p {
+      padding: 1rem 0rem;
+    }
   }
 `;
 

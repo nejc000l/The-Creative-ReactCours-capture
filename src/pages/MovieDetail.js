@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { MovieState } from '../movieState';
 import styled from 'styled-components';
-
+import {motion} from 'framer-motion';
+import {pageAnimation} from '../animation'
+import ScrollTop  from '../components/ScrollTop';
 
 const MovieDetail = () => {
   const history = useHistory();
@@ -18,7 +20,11 @@ const MovieDetail = () => {
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+        exit="exit" 
+        variants={pageAnimation} 
+        initial="hidden" 
+        animate="show" >
           <HedLine>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="" />
@@ -32,14 +38,14 @@ const MovieDetail = () => {
               ))}
          </Awards>
 
-   
+            <ScrollTop/>
         </Details>
       )}
    
     </>
   );
 };
-const Details = styled.div`
+const Details = styled(motion.div)`
   color:white;
 `
 const HedLine = styled.div`
@@ -65,6 +71,10 @@ display:flex;
 margin:5rem 10rem;
 align-items:center;
 justify-content:space-around;
+@media(max-width:1500px){
+      display:block;
+      margin:2rem 2rem;
+    }
 `
 
 const AwardStyle = styled.div`

@@ -6,11 +6,20 @@ import money from '../img/money.svg';
 import home2 from '../img/home2.png';
 import styled from 'styled-components'
 import {About, Hide, Description,Image} from '../styled'
+import {useScroll} from './useScroll';
+import {motion} from 'framer-motion';
+import {reveal} from '../animation'
 
 
 const ServicesSection =()=>{
+    const [element,controls] =useScroll()
     return(
-       <Services>
+       <Services 
+        variants={reveal}
+        transition={{ duration: 0.75 }}
+        ref={element}
+        animate={controls}
+        initial="hidden">
            <Description>
                <h2>High <span>Quality </span>services</h2>
                 <Cards>
@@ -84,6 +93,10 @@ const Services = styled(About)`
 const Cards = styled.div`
     display:flex;
     flex-wrap:wrap;
+    @media(max-width:1300px){
+       justify-content:center;
+    }
+
 `
 const Card = styled.div`
     flex-basis:20rem;
